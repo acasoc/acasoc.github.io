@@ -3,6 +3,9 @@ layout: user_default
 ---
 
 <!-- CONTENT -->
-{%- assign user_data = site.users | where: "user", "Emanuel" | first}
+{%- assign user_data = site.users | where: "user", "Emanuel" | first -%}
+{%- assign site.current_user = user_data.user -%}
+{{user_data.user | escape}}
+{{site.current_user | escape}}
 {%- include user_home.html -%}
 <!-- CONTENT END -->
