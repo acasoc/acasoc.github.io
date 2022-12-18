@@ -1,9 +1,5 @@
----
-layout: default
----
-
 <div class="home">
-  {%- assign user_posts = site.posts | where: "author", "Emanuel" -%}
+  {%- assign user_posts = site.posts | where: "author", page.user -%}
 
   {%- if page.title -%}
     <h1 class="page-heading">{{ page.title }}</h1>
@@ -15,7 +11,7 @@ layout: default
     <!-- Check if there are featured posts -->
     {%- assign  featured_posts = user_posts | where: "featured", true -%}
     {%- if featured_posts.size > 0 -%}
-      {%- include featured.html -%}
+      {%- include user_featured.html -%}
     {%- endif -%}
 
     <!-- List all posts -->
