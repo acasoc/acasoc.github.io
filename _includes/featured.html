@@ -1,0 +1,33 @@
+<article class="featured">
+    <nav class="featured-nav">
+        <h1 class="page-heading">Featured</h1>
+        {%- assign  featured_posts = site.posts | where: "featured", true -%}
+        {%- for post in featured_posts -%}
+            <a href="{{ post.url | relative_url }}">
+            <div class="featured-thumbnail">
+                <div class="featured-title">{{post.title}}</div>
+                {%- if post.thumbnail -%}
+                    <img src="{{ post.thumbnail | relative_url }}" alt="icon">
+                {%- else -%}
+                    <img src="{{ 'assets/posts/default.jpg' | relative_url}}", alt="icon">
+                {%- endif -%}
+                {%- if post.description -%}
+                <div class="featured-overlay">
+                    <div class="featured-text">
+                        <p class="featured-meta">
+                        <time class="dt-published" datetime="{{ post.date | date_to_xmlschema }}" itemprop="datePublished">
+                            {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                            {{ post.date | date: date_format }}
+                        </time>
+                        {%- if post.author -%}
+                            • <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">{{ post.author }}</span></span>
+                        {%- endif -%}</p>
+                        {{post.description}}
+                    </div>
+                </div>
+                {%- endif -%}
+            </div>
+            </a>
+        {%- endfor -%}
+    </nav>
+</article>
