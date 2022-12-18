@@ -2,10 +2,10 @@
 
     <div class="wrapper">
       {%- assign default_paths = site.pages | map: "path" -%}
-      {%- assign page_paths = page.header_pages | default: default_paths -%}
+      {%- assign page_paths = user_data.header_pages | default: default_paths -%}
       <a class="site-title" rel="author" href="{{ '/' | relative_url }}">
         <img src="{{ 'icon.svg' | relative_url }}" alt="icon" style="padding:10px;float:left;width:60px;height:30px;">
-        {{ page.title | escape }}
+        {{ user_data.title | escape }}
       </a>
       {%- if page_paths -%}
         <nav class="site-nav">
