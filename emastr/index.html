@@ -16,7 +16,7 @@ layout: default
     {%- assign  featured_posts = user_posts | where: "featured", true -%}
     {%- if featured_posts.size > 0 -%}
       {%- include featured.html -%}
-    {%-endif -%}
+    {%- endif -%}
 
     <!-- List all posts -->
     <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
