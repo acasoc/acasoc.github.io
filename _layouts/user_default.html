@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}"> 
   <!-- DEFINE USER DATA VARIABLE -->
-  {%- assign page_owner = page.user | default, "Debeta" | first-%}
-  {%- assign user_data = site.users | where, "user", page_owner -%}
+  {%- assign page_user = page.user | default, "Debeta" | first-%}
+  {%- assign user_data = site.users | where, "user", page_user -%}
 
   {%- include head.html -%}
 
@@ -11,7 +11,8 @@
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        {{page.user | escape}}   
+        {{page_user | escape}}  
+        {{user_data.title | escape}} 
         {{ content }}
       </div>
     </main>
