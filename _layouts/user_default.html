@@ -1,19 +1,17 @@
-<!-- DEFINE USER DATA VARIABLE -->
-{%- assign page_owner = page.user | default, "Debeta" -%}
-{%- assign user_data = site.users | where, "user", page_owner -%}
-
-<!-- BUILD PAGE -->
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}"> 
+  <!-- DEFINE USER DATA VARIABLE -->
+  {%- assign page_owner = page.user | default, "Debeta" -%}
+  {%- assign user_data = site.users | where, "user", page_owner -%}
 
   {%- include head.html -%}
 
   <body>
-    {{user_data.user | escape}}
     {%- include user_header.html -%}
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
+        {{user_data.user | escape}}   
         {{ content }}
       </div>
     </main>
