@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}"> 
   <!-- DEFINE USER DATA VARIABLE -->
-  {%- assign page_user = page.user | default, "Debeta" | first-%}
-  {%- assign user_data = site.users | where, "user", page_user -%}
+  {%- assign page_user = page.user | default, "Debeta"-%}
+  {%- assign user_data = site.users | where, "user", page_user | first -%}
 
   {%- include head.html -%}
 
