@@ -1,5 +1,6 @@
 ---
 user: "Leon"
-header_pages: ["Swagger.markdown"]
+header_pages: ["/swagger/"]
+title: "Leon Klingborg"
 ---
 Hello, I am leon
